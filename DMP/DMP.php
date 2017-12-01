@@ -57,7 +57,7 @@ class DMP
             require_once $controller_path;
 
             $controller_name = $components[1] . 'Controller';
-            $controller = new $controller_name();
+            $controller = new $controller_name($this->router->getParams());
 
             $request = $_REQUEST;
             $requester = new Request($request);

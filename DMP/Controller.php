@@ -30,13 +30,30 @@ class Controller
         $host = $_SERVER['HTTP_HOST'];
         $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 
-        header("Location: http://$host$uri" . $action['path'] . '?' . $query, true);
+        header("Location: http://$host$uri" . $action['path'] . '?' . $query, true, 301);
+        return true;
     }
 
     public function getManager($name)
     {
         $db_conn = \DMP\DatabaseManager\DatabaseManager::getConnection($name);
         return$db_conn;
+    }
+
+    public function getCacheableMapper($name)
+    {
+        $mapper = '\DMP\DatabaseManager\\' . $name . 'Mapper';
+        $db_conn = $mapper::getConnection($name);
+
+        return $db_conn;
+    }
+
+    public function getTemplateEngine($name)
+    {
+        $tpl = '\DMP\\' . $name . 'TemplateEngine';
+        $engine = $tpl::getSmarty();
+
+        return $engine;
     }
 
     public function getImagesFolderPath()

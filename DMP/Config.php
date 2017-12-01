@@ -39,10 +39,18 @@ class Config
         return $this->config['templates.path'];
     }
 
+    public function getIsTemplateCacheEnabled()
+    {
+        return $this->config['templates.cache'];
+    }
+
     public function getConnections()
     {
         return $this->config['database'];
     }
 
-
+    public function getMiddlewaresPath()
+    {
+        return $this->config['Middleware.path'];
+    }
 }
