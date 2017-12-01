@@ -1,2 +1,2 @@
 # DMP Framework
-Simple framework for the university
+DMP Framework - A full-featured framework for PHP
