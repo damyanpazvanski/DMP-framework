@@ -1,2 +1,2 @@
-# DMP-framework
+# DMP Framework
 Simple framework for the university
